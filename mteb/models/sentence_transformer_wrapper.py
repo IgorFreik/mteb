@@ -7,6 +7,8 @@ from typing import Any
 import numpy as np
 import torch
 from sentence_transformers import CrossEncoder, SentenceTransformer
+from llama_cpp import Llama
+from tqdm import tqdm
 
 from mteb.encoder_interface import PromptType
 
@@ -35,7 +37,8 @@ class SentenceTransformerWrapper(Wrapper):
             **kwargs: Additional arguments to pass to the SentenceTransformer model.
         """
         if isinstance(model, str):
-            self.model = SentenceTransformer(model, revision=revision, **kwargs)
+            # self.model = SentenceTransformer(model, revision=revision, **kwargs)
+            self.model = Llama(model_path=model, embedding=True)
         else:
             self.model = model
 
@@ -99,11 +102,16 @@ class SentenceTransformerWrapper(Wrapper):
             )
         logger.info(f"Encoding {len(sentences)} sentences.")
 
-        embeddings = self.model.encode(
-            sentences,
-            prompt_name=prompt_name,
-            **kwargs,
-        )
+        # embeddings = self.model.encode(
+        #     sentences,
+        #     prompt_name=prompt_name,
+        #     **kwargs,
+        # )
+        embeddings = []
+        for sentence in tqdm(sentences):
+            output = self.model.embed(sentence)
+            embeddings.append(output)
+
         if isinstance(embeddings, torch.Tensor):
             # sometimes in kwargs can be return_tensors=True
             embeddings = embeddings.cpu().detach().float().numpy()
