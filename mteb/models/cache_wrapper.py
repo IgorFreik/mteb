@@ -287,10 +287,11 @@ class CachedEmbeddingWrapper(Wrapper, Encoder):
         return list(set(super().__dir__() + dir(self._model)))
 
     def __del__(self):
-        try:
-            self.close()
-        except Exception as e:
-            logger.warning(f"Exception during CachedEmbeddingWrapper cleanup: {str(e)}")
+        pass
+        # try:
+        #     self.close()
+        # except Exception as e:
+        #     logger.warning(f"Exception during CachedEmbeddingWrapper cleanup: {str(e)}")
 
 
     def close(self):
