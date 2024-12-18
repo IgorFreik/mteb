@@ -192,7 +192,8 @@ class TextVectorMap:
         return self._hash_text(text) in self.hash_to_index
 
     def __del__(self):
-        self.close()
+        # self.close()
+        pass
 
     def close(self):
         if hasattr(self, "vectors") and self.vectors is not None:
@@ -295,5 +296,5 @@ class CachedEmbeddingWrapper(Wrapper, Encoder):
 
 
     def close(self):
-        self.cache.close()
+        # self.cache.close()
         logger.info("Closed CachedEmbeddingWrapper")
