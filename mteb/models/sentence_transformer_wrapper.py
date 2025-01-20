@@ -7,8 +7,6 @@ from typing import Any
 import numpy as np
 import torch
 from sentence_transformers import CrossEncoder, SentenceTransformer
-from llama_cpp import Llama
-from tqdm import tqdm
 
 from mteb.encoder_interface import PromptType
 
@@ -26,7 +24,6 @@ class SentenceTransformerWrapper(Wrapper):
         **kwargs,
     ) -> None:
         """Wrapper for SentenceTransformer models.
-
         Args:
             model: The SentenceTransformer model to use. Can be a string (model name), a SentenceTransformer model, or a CrossEncoder model.
             revision: The revision of the model to use.
@@ -37,8 +34,7 @@ class SentenceTransformerWrapper(Wrapper):
             **kwargs: Additional arguments to pass to the SentenceTransformer model.
         """
         if isinstance(model, str):
-            # self.model = SentenceTransformer(model, revision=revision, **kwargs)
-            self.model = Llama(model_path=model, embedding=True)
+            self.model = SentenceTransformer(model, revision=revision, **kwargs)
         else:
             self.model = model
 
@@ -59,6 +55,8 @@ class SentenceTransformerWrapper(Wrapper):
         if isinstance(self.model, CrossEncoder):
             self.predict = self._predict
 
+        if hasattr(self.model, "similarity"):
+            self.similarity = self.model.similarity
     def encode(
         self,
         sentences: Sequence[str],
@@ -68,22 +66,18 @@ class SentenceTransformerWrapper(Wrapper):
         **kwargs: Any,
     ) -> np.ndarray:
         """Encodes the given sentences using the encoder.
-
         Args:
             sentences: The sentences to encode.
             task_name: The name of the task. Sentence-transformers uses this to
                 determine which prompt to use from a specified dictionary.
             prompt_type: The name type of prompt. (query or passage)
             **kwargs: Additional arguments to pass to the encoder.
-
             The order of priorities for prompt selection are:
                 1. Composed prompt of task name + prompt type (query or passage)
                 2. Specific task prompt
                 3. Composed prompt of task type + prompt type (query or passage)
                 4. Specific task type prompt
                 5. Specific prompt type (query or passage)
-
-
         Returns:
             The encoded sentences.
         """
@@ -102,16 +96,11 @@ class SentenceTransformerWrapper(Wrapper):
             )
         logger.info(f"Encoding {len(sentences)} sentences.")
 
-        # embeddings = self.model.encode(
-        #     sentences,
-        #     prompt_name=prompt_name,
-        #     **kwargs,
-        # )
-        embeddings = []
-        for sentence in tqdm(sentences):
-            output = self.model.embed(sentence)
-            embeddings.append(output)
-
+        embeddings = self.model.encode(
+            sentences,
+            prompt_name=prompt_name,
+            **kwargs,
+        )
         if isinstance(embeddings, torch.Tensor):
             # sometimes in kwargs can be return_tensors=True
             embeddings = embeddings.cpu().detach().float().numpy()
