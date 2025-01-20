@@ -12,8 +12,8 @@ class ArxivClusteringS2S(AbsTaskClustering):
         description="Clustering of titles from arxiv. Clustering of 30 sets, either on the main or secondary category",
         reference="https://www.kaggle.com/Cornell-University/arxiv",
         dataset={
-            "path": "mteb/arxiv-clustering-s2s",
-            "revision": "f910caf1a6075f7329cdf8c1a6135696f37dbd53",
+            "path": "igor-freik/arxiv-clustering-s2s_300",
+            # "revision": "f910caf1a6075f7329cdf8c1a6135696f37dbd53",
         },
         type="Clustering",
         category="s2s",

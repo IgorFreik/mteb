@@ -9,8 +9,8 @@ class STSBenchmarkSTS(AbsTaskSTS):
     metadata = TaskMetadata(
         name="STSBenchmark",
         dataset={
-            "path": "mteb/stsbenchmark-sts",
-            "revision": "b0fddb56ed78048fa8b90373c8a3cfc37b684831",
+            "path": "igor-freik/stsbenchmark-sts_300",
+            # "revision": "b0fddb56ed78048fa8b90373c8a3cfc37b684831",
         },
         description="Semantic Textual Similarity Benchmark (STSbenchmark) dataset.",
         reference="https://github.com/PhilipMay/stsb-multi-mt/",

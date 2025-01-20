@@ -7,10 +7,10 @@ from mteb.abstasks.MultilingualTask import MultilingualTask
 from mteb.abstasks.TaskMetadata import TaskMetadata
 
 _LANGS = {
-    "de": ["deu-Latn"],
+    # "de": ["deu-Latn"],
     "en": ["eng-Latn"],
-    "fr": ["fra-Latn"],
-    "it": ["ita-Latn"],
+    # "fr": ["fra-Latn"],
+    # "it": ["ita-Latn"],
 }
 
 
@@ -18,8 +18,8 @@ class RTE3(MultilingualTask, AbsTaskPairClassification):
     metadata = TaskMetadata(
         name="RTE3",
         dataset={
-            "path": "maximoss/rte3-multi",
-            "revision": "d94f96ca5a6798e20f5a77e566f7a288dc6138d7",
+            "path": "igor-freik/rte3-multi_300",
+            # "revision": "d94f96ca5a6798e20f5a77e566f7a288dc6138d7",
         },
         description="Recognising Textual Entailment Challenge (RTE-3) aim to provide the NLP community with a benchmark to test progress in recognizing textual entailment",
         reference="https://aclanthology.org/W07-1401/",

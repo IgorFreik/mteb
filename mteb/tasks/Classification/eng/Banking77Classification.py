@@ -10,8 +10,8 @@ class Banking77Classification(AbsTaskClassification):
         description="Dataset composed of online banking queries annotated with their corresponding intents.",
         reference="https://arxiv.org/abs/2003.04807",
         dataset={
-            "path": "mteb/banking77",
-            "revision": "0fd18e25b25c072e09e0d92ab615fda904d66300",
+            "path": "igor-freik/banking77_300",
+            # "revision": "0fd18e25b25c072e09e0d92ab615fda904d66300",
         },
         type="Classification",
         category="s2s",

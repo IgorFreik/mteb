@@ -16,8 +16,8 @@ class SummEvalSummarization(AbsTaskSummarization):
         description="News Article Summary Semantic Similarity Estimation.",
         reference="https://github.com/Yale-LILY/SummEval",
         dataset={
-            "path": "mteb/summeval",
-            "revision": "cda12ad7615edc362dbf25a00fdd61d3b1eaf93c",
+            "path": "igor-freik/summeval_300",
+            # "revision": "cda12ad7615edc362dbf25a00fdd61d3b1eaf93c",
         },
         type="Summarization",
         category="p2p",
@@ -54,7 +54,7 @@ class SummEvalSummarizationv2(AbsTaskSummarization):
         description="News Article Summary Semantic Similarity Estimation. This version fixes a bug in the evaluation script that caused the main score to be computed incorrectly.",
         reference="https://github.com/Yale-LILY/SummEval",
         dataset={
-            "path": "mteb/summeval",
+            "path": "igor-freik/summeval_300",
             "revision": "cda12ad7615edc362dbf25a00fdd61d3b1eaf93c",
         },
         type="Summarization",

@@ -10,8 +10,8 @@ class AmazonPolarityClassification(AbsTaskClassification):
         description="Amazon Polarity Classification Dataset.",
         reference="https://huggingface.co/datasets/amazon_polarity",
         dataset={
-            "path": "mteb/amazon_polarity",
-            "revision": "e2d317d38cd51312af73b3d32a06d1a08b442046",
+            "path": "igor-freik/amazon_polarity_300",
+            # "revision": "e2d317d38cd51312af73b3d32a06d1a08b442046",
         },
         type="Classification",
         category="p2p",
