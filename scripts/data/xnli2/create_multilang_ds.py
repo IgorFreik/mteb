@@ -24,3 +24,4 @@ _LANGS = {
 for lang in _LANGS.keys():
     raw_ds = load_dataset(f"Harsit/xnli2.0_{lang}")
     raw_ds.push_to_hub(repo_id=repo_id, config_name=lang)
+()

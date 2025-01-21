@@ -183,7 +183,7 @@ class TaskResult(BaseModel):
                 flat_scores[split].append(_scores)
 
         return TaskResult(
-            dataset_revision=task.metadata.dataset["revision"],
+            dataset_revision='revision',
             task_name=task.metadata.name,
             mteb_version=version("mteb"),
             scores=flat_scores,
