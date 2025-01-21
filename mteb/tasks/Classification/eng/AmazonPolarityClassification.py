@@ -12,6 +12,7 @@ class AmazonPolarityClassification(AbsTaskClassification):
         dataset={
             "path": "igor-freik/amazon_polarity_300",
             # "revision": "e2d317d38cd51312af73b3d32a06d1a08b442046",
+            "revision": None,
         },
         type="Classification",
         category="p2p",

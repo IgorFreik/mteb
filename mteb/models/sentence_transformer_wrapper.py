@@ -57,6 +57,7 @@ class SentenceTransformerWrapper(Wrapper):
 
         if hasattr(self.model, "similarity"):
             self.similarity = self.model.similarity
+
     def encode(
         self,
         sentences: Sequence[str],
