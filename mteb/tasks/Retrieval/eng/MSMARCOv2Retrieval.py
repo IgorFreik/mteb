@@ -10,6 +10,7 @@ class MSMARCOv2(AbsTaskRetrieval):
         name="MSMARCOv2",
         dataset={
             "path": "igor-freik/msmarco-v2_300",
+            "revision": None,
             # "revision": "b1663124850d305ab7c470bb0548acf8e2e7ea43",
         },
         description="MS MARCO is a collection of datasets focused on deep learning in search",

@@ -10,6 +10,7 @@ class SciFact(AbsTaskRetrieval):
         name="SciFact",
         dataset={
             "path": "igor-freik/scifact_300",
+            "revision": None,
             # "revision": "0228b52cf27578f30900b9e5271d331663a030d7",
         },
         description="SciFact verifies scientific claims using evidence from the research literature containing scientific paper abstracts.",

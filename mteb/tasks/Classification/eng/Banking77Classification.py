@@ -11,6 +11,7 @@ class Banking77Classification(AbsTaskClassification):
         reference="https://arxiv.org/abs/2003.04807",
         dataset={
             "path": "igor-freik/banking77_300",
+            "revision": None,
             # "revision": "0fd18e25b25c072e09e0d92ab615fda904d66300",
         },
         type="Classification",

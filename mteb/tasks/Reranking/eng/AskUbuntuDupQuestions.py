@@ -11,8 +11,8 @@ class AskUbuntuDupQuestions(AbsTaskReranking):
         description="AskUbuntu Question Dataset - Questions from AskUbuntu with manual annotations marking pairs of questions as similar or non-similar",
         reference="https://github.com/taolei87/askubuntu",
         dataset={
-            # "path": "mteb/askubuntudupquestions-reranking",
             "path": "igor-freik/askubuntudupquestions-reranking_300",
+            "revision": None,
             # "revision": "2000358ca161889fa9c082cb41daa8dcfb161a54",
         },
         type="Reranking",

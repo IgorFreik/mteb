@@ -13,6 +13,7 @@ class MindSmallReranking(AbsTaskReranking):
         dataset={
             "path": "igor-freik/mind_small_reranking_300",
             # "revision": "59042f120c80e8afa9cdbb224f67076cec0fc9a7",
+            "revision": None,
         },
         type="Reranking",
         category="s2s",

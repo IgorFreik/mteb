@@ -11,6 +11,7 @@ class PawsXPairClassification(MultilingualTask, AbsTaskPairClassification):
         name="PawsXPairClassification",
         dataset={
             "path": "igor-freik/paws-x_300",
+            "revision": None,
             # "revision": "8a04d940a42cd40658986fdd8e3da561533a3646",
             "trust_remote_code": True,
         },

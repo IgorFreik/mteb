@@ -20,6 +20,7 @@ class TwentyNewsgroupsClustering(AbsTaskClustering):
         reference="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html",
         dataset={
             "path": "igor-freik/twentynewsgroups-clustering_300",
+            "revision": None,
             # "revision": "6125ec4e24fa026cec8a478383ee943acfbd5449",
         },
         type="Clustering",
@@ -60,6 +61,7 @@ class TwentyNewsgroupsClusteringFast(AbsTaskClusteringFast):
         reference="https://scikit-learn.org/0.19/datasets/twenty_newsgroups.html",
         dataset={
             "path": "igor-freik/twentynewsgroups-clustering_300",
+            "revision": None,
             # "revision": "6125ec4e24fa026cec8a478383ee943acfbd5449",
         },
         type="Clustering",

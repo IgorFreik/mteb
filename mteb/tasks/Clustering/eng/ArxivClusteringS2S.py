@@ -13,6 +13,7 @@ class ArxivClusteringS2S(AbsTaskClustering):
         reference="https://www.kaggle.com/Cornell-University/arxiv",
         dataset={
             "path": "igor-freik/arxiv-clustering-s2s_300",
+            "revision": None,
             # "revision": "f910caf1a6075f7329cdf8c1a6135696f37dbd53",
         },
         type="Clustering",

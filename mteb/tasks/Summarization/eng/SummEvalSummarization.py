@@ -17,6 +17,7 @@ class SummEvalSummarization(AbsTaskSummarization):
         reference="https://github.com/Yale-LILY/SummEval",
         dataset={
             "path": "igor-freik/summeval_300",
+            "revision": None,
             # "revision": "cda12ad7615edc362dbf25a00fdd61d3b1eaf93c",
         },
         type="Summarization",
@@ -55,6 +56,7 @@ class SummEvalSummarizationv2(AbsTaskSummarization):
         reference="https://github.com/Yale-LILY/SummEval",
         dataset={
             "path": "igor-freik/summeval_300",
+            "revision": None,
             # "revision": "cda12ad7615edc362dbf25a00fdd61d3b1eaf93c",
         },
         type="Summarization",

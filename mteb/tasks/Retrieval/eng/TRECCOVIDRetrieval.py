@@ -12,6 +12,7 @@ class TRECCOVID(AbsTaskRetrieval):
         reference="https://ir.nist.gov/covidSubmit/index.html",
         dataset={
             "path": "igor-freik/trec-covid_300",
+            "revision": None,
             # "revision": "bb9466bac8153a0349341eb1b22e06409e78ef4e",
         },
         type="Retrieval",

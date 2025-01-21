@@ -10,6 +10,7 @@ class STSBenchmarkSTS(AbsTaskSTS):
         name="STSBenchmark",
         dataset={
             "path": "igor-freik/stsbenchmark-sts_300",
+            "revision": None,
             # "revision": "b0fddb56ed78048fa8b90373c8a3cfc37b684831",
         },
         description="Semantic Textual Similarity Benchmark (STSbenchmark) dataset.",
