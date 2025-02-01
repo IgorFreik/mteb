@@ -110,14 +110,31 @@ class SentenceTransformerWrapper(Wrapper):
         # )
         embeddings = []
         for sentence in tqdm(sentences):
-            output = self.model.embed(sentence)
-            if len(np.array(output)) > 1:
-                print('Taking last embedding!')
-                output = output[-1]
-            elif 'instruct' in self.model.model_path.lower():
-                raise Exception("Instruct model giving non token-level preds.")
+            if 'instruct' in self.model.model_path.lower():
+                print(">>>>>>>> Using instruct!")
+                instruction = self.get_instruction(task_name, prompt_type)
+                if 'qwen2' in self.model.model_path.lower():
+                    instruction_template = "Instruct: {instruction}\nQuery: "
+                    instruction = instruction_template.format(instruction=instruction)
+                    sentence = instruction + sentence
+                    print(f'>>>>>>>> Final instruction: {instruction}')
+                elif 'e5' in self.model.model_path.lower():
+                    instruction_template = "Instruct: {instruction}\nQuery: "
+                    instruction = instruction_template.format(instruction=instruction)
+                    sentence = instruction + sentence
+                    print(f'>>>>>>>> Final instruction: {instruction}')
             else:
-                print("Output is 1d array!")
+                print('>>>>>>>> NOT INSTRUCT')
+            output = self.model.embed(sentence)
+
+            if len(np.array(output)) > 1:
+                print('>>>>>>>> Taking last embedding!')
+                if 'instruct' not in self.model.model_path.lower():
+                    raise Exception("Non instruct model giving non token-level preds.")
+                output = self.model.embed(sentence)[-1]
+            else:
+                output = self.model.embed(sentence)
+                print(">>>>>>>> Output is 1d array!")
             embeddings.append(output)
 
         if isinstance(embeddings, torch.Tensor):
