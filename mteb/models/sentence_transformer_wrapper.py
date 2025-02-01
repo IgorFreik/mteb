@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import os
 from collections.abc import Sequence
 from typing import Any
 
@@ -110,6 +111,13 @@ class SentenceTransformerWrapper(Wrapper):
         embeddings = []
         for sentence in tqdm(sentences):
             output = self.model.embed(sentence)
+            if len(np.array(output)) > 1:
+                print('Taking last embedding!')
+                output = output[-1]
+            elif 'instruct' in self.model.model_path.lower():
+                raise Exception("Instruct model giving non token-level preds.")
+            else:
+                print("Output is 1d array!")
             embeddings.append(output)
 
         if isinstance(embeddings, torch.Tensor):
