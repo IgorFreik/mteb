@@ -10,8 +10,8 @@ class SensitiveTopicsClassification(AbsTaskMultilabelClassification):
     metadata = TaskMetadata(
         name="SensitiveTopicsClassification",
         dataset={
-            "path": "ai-forever/sensitive-topics-classification",
-            "revision": "416b34a802308eac30e4192afc0ff99bb8dcc7f2",
+            "path": "igor-freik/sensitive-topics-classification_300",
+            "revision": None,
         },
         description="Multilabel classification of sentences across 18 sensitive topics.",
         reference="https://aclanthology.org/2021.bsnlp-1.4",

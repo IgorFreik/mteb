@@ -31,8 +31,8 @@ class STS22CrosslingualSTSv2(AbsTaskSTS, MultilingualTask):
     metadata = TaskMetadata(
         name="STS22.v2",
         dataset={
-            "path": "mteb/sts22-crosslingual-sts",
-            "revision": "d31f33a128469b20e357535c39b82fb3c3f6f2bd",
+            "path": "igor-freik/sts22-crosslingual-sts_300",
+            "revision": None,
         },
         description="SemEval 2022 Task 8: Multilingual News Article Similarity. Version 2 filters updated on STS22 by removing pairs where one of entries contain empty sentences.",
         reference="https://competitions.codalab.org/competitions/33835",
@@ -93,8 +93,8 @@ class STS22CrosslingualSTS(AbsTaskSTS, MultilingualTask):
     metadata = TaskMetadata(
         name="STS22",
         dataset={
-            "path": "mteb/sts22-crosslingual-sts",
-            "revision": "de9d86b3b84231dc21f76c7b7af1f28e2f57f6e3",
+            "path": "igor-freik/sts22-crosslingual-sts_300",
+            "revision": None,
         },
         description="SemEval 2022 Task 8: Multilingual News Article Similarity",
         reference="https://competitions.codalab.org/competitions/33835",

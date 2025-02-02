@@ -10,8 +10,8 @@ class TweetSentimentExtractionClassification(AbsTaskClassification):
         description="",
         reference="https://www.kaggle.com/competitions/tweet-sentiment-extraction/overview",
         dataset={
-            "path": "mteb/tweet_sentiment_extraction",
-            "revision": "d604517c81ca91fe16a244d1248fc021f9ecee7a",
+            "path": "igor-freik/tweet_sentiment_extraction_300",
+            "revision": None,
         },
         type="Classification",
         category="s2s",

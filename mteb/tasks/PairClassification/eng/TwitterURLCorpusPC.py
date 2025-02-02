@@ -9,8 +9,8 @@ class TwitterURLCorpusPC(AbsTaskPairClassification):
     metadata = TaskMetadata(
         name="TwitterURLCorpus",
         dataset={
-            "path": "mteb/twitterurlcorpus-pairclassification",
-            "revision": "8b6510b0b1fa4e4c4f879467980e9be563ec1cdf",
+            "path": "igor-freik/twitterurlcorpus-pairclassification_300",
+            "revision": None,
         },
         description="Paraphrase-Pairs of Tweets.",
         reference="https://languagenet.github.io/",

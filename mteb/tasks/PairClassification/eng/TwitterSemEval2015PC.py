@@ -9,8 +9,8 @@ class TwitterSemEval2015PC(AbsTaskPairClassification):
     metadata = TaskMetadata(
         name="TwitterSemEval2015",
         dataset={
-            "path": "mteb/twittersemeval2015-pairclassification",
-            "revision": "70970daeab8776df92f5ea462b6173c0b46fd2d1",
+            "path": "igor-freik/twittersemeval2015-pairclassification_300",
+            "revision": None,
         },
         description="Paraphrase-Pairs of Tweets from the SemEval 2015 workshop.",
         reference="https://alt.qcri.org/semeval2015/task1/",
