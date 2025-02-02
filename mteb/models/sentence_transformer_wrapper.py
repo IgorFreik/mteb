@@ -110,6 +110,11 @@ class SentenceTransformerWrapper(Wrapper):
         # )
         embeddings = []
         for sentence in tqdm(sentences):
+            ### MODEL PROMPTS ###
+            if 'prompt' in kwargs:
+                sentence = kwargs['prompt'] + sentence
+
+            ### INSTRUCT MODELS ###
             if 'instruct' in self.model.model_path.lower():
                 print(">>>>>>>> Using instruct!")
                 instruction = self.get_instruction(task_name, prompt_type)
@@ -125,6 +130,17 @@ class SentenceTransformerWrapper(Wrapper):
                     print(f'>>>>>>>> Final instruction: {instruction}')
             else:
                 print('>>>>>>>> NOT INSTRUCT')
+
+            ### NON INSTRUCT MODELS ###
+            if 'nomic-ai' in self.model.model_path.lower():
+                instruction = instruction_template.format(instruction=instruction)
+                sentence = instruction + sentence
+                print(f'>>>>>>>> Final instruction: {instruction}')
+            elif '' in self.model.model_path.lower():
+                instruction = instruction_template.format(instruction=instruction)
+                sentence = instruction + sentence
+                print(f'>>>>>>>> Final instruction: {instruction}')
+
             output = self.model.embed(sentence)
 
             if len(np.array(output)) > 1:
