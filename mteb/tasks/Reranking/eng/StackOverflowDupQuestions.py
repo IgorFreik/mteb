@@ -11,8 +11,8 @@ class StackOverflowDupQuestions(AbsTaskReranking):
         description="Stack Overflow Duplicate Questions Task for questions with the tags Java, JavaScript and Python",
         reference="https://www.microsoft.com/en-us/research/uploads/prod/2019/03/nl4se18LinkSO.pdf",
         dataset={
-            "path": "mteb/stackoverflowdupquestions-reranking",
-            "revision": "e185fbe320c72810689fc5848eb6114e1ef5ec69",
+            "path": "igor-freik/stackoverflowdupquestions-reranking_300",
+            "revision": None,
         },
         type="Reranking",
         category="s2s",
