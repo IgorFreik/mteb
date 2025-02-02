@@ -109,10 +109,14 @@ class SentenceTransformerWrapper(Wrapper):
         #     **kwargs,
         # )
         embeddings = []
+        if 'prompt' in kwargs:
+            prompt = kwargs['prompt']
+            print(f'>>>> FOUND PROMPT: {prompt}')
+        else:
+            prompt = None
+
         for sentence in tqdm(sentences):
             ### MODEL PROMPTS ###
-            if 'prompt' in kwargs:
-                sentence = kwargs['prompt'] + sentence
 
             ### INSTRUCT MODELS ###
             if 'instruct' in self.model.model_path.lower():
@@ -128,8 +132,11 @@ class SentenceTransformerWrapper(Wrapper):
                     instruction = instruction_template.format(instruction=instruction)
                     sentence = instruction + sentence
                     print(f'>>>>>>>> Final instruction: {instruction}')
+            elif prompt:
+                sentence = prompt + sentence
+                print(f'>>>>>>> USING PROMPT: {prompt}')
             else:
-                print('>>>>>>>> NOT INSTRUCT')
+                print('>>>>>>>> NOT INSTRUCT / PROMPT')
 
             output = self.model.embed(sentence)
 
