@@ -131,16 +131,6 @@ class SentenceTransformerWrapper(Wrapper):
             else:
                 print('>>>>>>>> NOT INSTRUCT')
 
-            ### NON INSTRUCT MODELS ###
-            if 'nomic-ai' in self.model.model_path.lower():
-                instruction = instruction_template.format(instruction=instruction)
-                sentence = instruction + sentence
-                print(f'>>>>>>>> Final instruction: {instruction}')
-            elif '' in self.model.model_path.lower():
-                instruction = instruction_template.format(instruction=instruction)
-                sentence = instruction + sentence
-                print(f'>>>>>>>> Final instruction: {instruction}')
-
             output = self.model.embed(sentence)
 
             if len(np.array(output)) > 1:
