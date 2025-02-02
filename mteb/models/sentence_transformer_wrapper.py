@@ -140,9 +140,10 @@ class SentenceTransformerWrapper(Wrapper):
 
             output = self.model.embed(sentence)
 
-            if len(np.array(output)) > 1:
+            if len(np.array(output).shape) > 1:
                 print('>>>>>>>> Taking last embedding!')
                 if 'instruct' not in self.model.model_path.lower():
+                    print(f'>>>> SHAPE: {np.array(output).shape}')
                     raise Exception("Non instruct model giving non token-level preds.")
                 output = self.model.embed(sentence)[-1]
             else:
